@@ -1,0 +1,142 @@
+{% load static %}
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+
+  <!-- Utilities สำหรับเอฟเฟกต์ -->
+  <style>
+    .text-glow    { text-shadow:0 0 8px rgba(255,255,255,.55), 0 0 18px rgba(255,255,255,.35); }
+    .text-glow-xl { text-shadow:0 0 14px rgba(255,255,255,.80), 0 0 32px rgba(255,255,255,.50); }
+    .neon         { box-shadow:0 0 18px rgba(255,255,255,.35), inset 0 0 12px rgba(255,255,255,.08); }
+    .neon-ring    { filter: drop-shadow(0 0 12px rgba(255,255,255,.45)); }
+
+    /* glow เฉพาะตัวไอคอน (ไม่เป็นวงกลม) */
+    .icon        { fill:rgba(255,255,255,.80); transition:filter .3s, fill .3s; }
+    .icon-hover  { filter:none; }
+    a:hover .icon-hover { fill:#fff; filter:drop-shadow(0 0 8px rgba(255,255,255,.9)); }
+
+    .no-pointer  { pointer-events:none; }
+  </style>
+</head>
+
+<body class="min-h-screen bg-black text-white relative overflow-hidden">
+
+  <!-- วิดีโอพื้นหลัง (ใส่ไฟล์ของคุณที่ static/media/bg-space.mp4 หรือเปลี่ยนชื่อได้) -->
+  <video class="fixed inset-0 w-full h-full object-cover opacity-35 no-pointer" autoplay muted loop playsinline>
+    <source src="{% static 'media/bg-space.mp4' %}" type="video/mp4">
+  </video>
+  <div class="fixed inset-0 bg-black/45 no-pointer"></div>
+
+  <!-- หิมะโปรย -->
+  <canvas id="snow" class="fixed inset-0 no-pointer" style="opacity:.9"></canvas>
+
+  {% block body %}{% endblock %}
+
+  <!-- เพลง -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="{% static 'media/iwantu.mp3' %}" type="audio/mpeg">
+  </audio>
+  <button id="musicBtn"
+          class="fixed bottom-5 right-5 rounded-full px-4 py-2 text-sm bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur z-10">
+    ⏸ Pause
+  </button>
+
+  <script>
+    // Force auto-play music on page load
+    const a = document.getElementById('bgm');
+    const b = document.getElementById('musicBtn');
+    let playing = false;
+
+    // Function to start music
+    async function startMusic() {
+      try {
+        await a.play();
+        b.textContent = '⏸ Pause';
+        playing = true;
+      } catch(e) {
+        console.warn('Autoplay failed:', e);
+      }
+    }
+
+    // Try multiple times to autoplay
+    window.addEventListener('load', () => {
+      startMusic();
+      
+      // Retry if first attempt fails
+      setTimeout(() => {
+        if (!playing) startMusic();
+      }, 100);
+    });
+
+    // Start music on any user interaction
+    const startOnInteraction = () => {
+      if (!playing) {
+        startMusic();
+        // Remove listeners after first interaction
+        document.removeEventListener('click', startOnInteraction);
+        document.removeEventListener('touchstart', startOnInteraction);
+        document.removeEventListener('keydown', startOnInteraction);
+      }
+    };
+    
+    document.addEventListener('click', startOnInteraction);
+    document.addEventListener('touchstart', startOnInteraction);
+    document.addEventListener('keydown', startOnInteraction);
+
+    // Toggle music on button click
+    b.addEventListener('click', async (e) => {
+      e.stopPropagation(); // Prevent triggering startOnInteraction
+      try {
+        if (!playing) { 
+          await a.play(); 
+          b.textContent = '⏸ Pause'; 
+          playing = true; 
+        }
+        else { 
+          a.pause(); 
+          b.textContent = '▶︎ Play'; 
+          playing = false; 
+        }
+      } catch(e){ 
+        console.warn(e); 
+      }
+    });
+
+    // snow effect
+    (function (){
+      const c = document.getElementById('snow');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      let w, h, flakes=[];
+      const R = () => Math.random();
+      function resize(){ w= c.width = innerWidth; h = c.height = innerHeight; }
+      addEventListener('resize', resize); resize();
+      function spawn(n=160){
+        flakes = Array.from({length:n}, ()=>({
+          x:R()*w, y:R()*h, r:1+R()*2.2, s:.5+R()*1.2, a:.3+.7*R(), drift:(R()-.5)*0.6
+        }));
+      }
+      spawn();
+      let t=0;
+      function tick(){
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(255,255,255,.9)';
+        for (const f of flakes){
+          f.y += f.s; f.x += Math.sin((t+f.y)*0.003)*0.3 + f.drift;
+          if (f.y > h+4) { f.y = -4; f.x = R()*w; }
+          ctx.globalAlpha = f.a;
+          ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI*2); ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        t++; requestAnimationFrame(tick);
+      }
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) tick();
+    })();
+  </script>
+</body>
+</html>
