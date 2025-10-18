@@ -83,63 +83,54 @@
         <div class="absolute top-4 right-4 w-12 h-12 bg-purple-500/20 rounded-full blur-xl animate-float"></div>
         <div class="absolute bottom-4 left-4 w-16 h-16 bg-pink-500/20 rounded-full blur-xl animate-float-delayed"></div>
         
-        <!-- Avatar & Name Section - SIDE BY SIDE -->
-        <div class="flex items-center justify-center gap-6 md:gap-8 lg:gap-10 mb-4 flex-wrap">
+        <!-- Avatar & Name Section - SIDE BY SIDE with entrance animation -->
+        <div class="flex items-center justify-center gap-6 md:gap-8 lg:gap-10 mb-4 flex-wrap" id="profileSection">
           
           <!-- Avatar -->
-          <div class="relative group/avatar">
+          <div class="relative group/avatar animate-slide-in-left">
             <!-- Multiple glow layers -->
             <div class="absolute -inset-4 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full blur-3xl opacity-0 group-hover/avatar:opacity-100 transition-all duration-700 animate-spin-very-slow"></div>
             <div class="absolute -inset-2 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-full blur-2xl opacity-60 group-hover/avatar:opacity-90 transition-all duration-500 animate-pulse"></div>
             
             <!-- Avatar container -->
             <div class="relative">
-              <!-- Rotating gear ring - มีฟันเฟือง -->
-              <div class="absolute -inset-3 rounded-full animate-spin-gear">
-                <svg class="w-full h-full" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="url(#gradient1)" stroke-width="2" stroke-dasharray="5,3" opacity="0.6"/>
-                  <!-- Gear teeth -->
-                  <g stroke="url(#gradient1)" stroke-width="2" fill="none" opacity="0.8">
-                    <line x1="50" y1="0" x2="50" y2="8" />
-                    <line x1="75" y1="6.7" x2="71.5" y2="14" />
-                    <line x1="93.3" y1="25" x2="86" y2="28.5" />
-                    <line x1="100" y1="50" x2="92" y2="50" />
-                    <line x1="93.3" y1="75" x2="86" y2="71.5" />
-                    <line x1="75" y1="93.3" x2="71.5" y2="86" />
-                    <line x1="50" y1="100" x2="50" y2="92" />
-                    <line x1="25" y1="93.3" x2="28.5" y2="86" />
-                    <line x1="6.7" y1="75" x2="14" y2="71.5" />
-                    <line x1="0" y1="50" x2="8" y2="50" />
-                    <line x1="6.7" y1="25" x2="14" y2="28.5" />
-                    <line x1="25" y1="6.7" x2="28.5" y2="14" />
-                  </g>
-                  <defs>
-                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style="stop-color:rgb(168,85,247);stop-opacity:1" />
-                      <stop offset="50%" style="stop-color:rgb(236,72,153);stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:rgb(59,130,246);stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+              <!-- Outer rotating particles ring -->
+              <div class="absolute -inset-8 animate-spin-slow">
+                <!-- 12 particles around the circle with pulse animation -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-purple-400 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)] animate-particle-pulse"></div>
+                <div class="absolute top-[6.7%] right-[6.7%] w-3 h-3 bg-pink-400 rounded-full shadow-[0_0_12px_rgba(236,72,153,0.8)] animate-particle-pulse delay-100"></div>
+                <div class="absolute top-1/4 right-0 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.8)] animate-particle-pulse delay-200"></div>
+                <div class="absolute top-1/2 right-0 w-3 h-3 bg-purple-400 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)] animate-particle-pulse delay-300"></div>
+                <div class="absolute bottom-1/4 right-0 w-3 h-3 bg-pink-400 rounded-full shadow-[0_0_12px_rgba(236,72,153,0.8)] animate-particle-pulse delay-400"></div>
+                <div class="absolute bottom-[6.7%] right-[6.7%] w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.8)] animate-particle-pulse delay-500"></div>
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-purple-400 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)] animate-particle-pulse delay-600"></div>
+                <div class="absolute bottom-[6.7%] left-[6.7%] w-3 h-3 bg-pink-400 rounded-full shadow-[0_0_12px_rgba(236,72,153,0.8)] animate-particle-pulse delay-700"></div>
+                <div class="absolute bottom-1/4 left-0 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.8)] animate-particle-pulse delay-800"></div>
+                <div class="absolute top-1/2 left-0 w-3 h-3 bg-purple-400 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)] animate-particle-pulse"></div>
+                <div class="absolute top-1/4 left-0 w-3 h-3 bg-pink-400 rounded-full shadow-[0_0_12px_rgba(236,72,153,0.8)] animate-particle-pulse delay-100"></div>
+                <div class="absolute top-[6.7%] left-[6.7%] w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.8)] animate-particle-pulse delay-200"></div>
               </div>
               
-              <!-- Second rotating ring - opposite direction -->
-              <div class="absolute -inset-2 rounded-full border-2 border-dashed border-pink-400/40 animate-spin-reverse-slow"></div>
+              <!-- Middle rotating ring with dashed border -->
+              <div class="absolute -inset-4 rounded-full border-2 border-dashed border-purple-400/60 animate-spin-medium shadow-[0_0_20px_rgba(168,85,247,0.4)]"></div>
+              
+              <!-- Inner rotating ring - opposite direction -->
+              <div class="absolute -inset-2 rounded-full border-2 border-dotted border-pink-400/40 animate-spin-reverse-slow"></div>
               
               <img src="{% static 'images/IMG_20251009_220558_758.webp' %}"
-                   class="relative w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full object-cover ring-4 ring-purple-400/80 shadow-[0_0_60px_rgba(168,85,247,1)] transform transition-all duration-700 hover:scale-110 hover:rotate-[15deg] hover:ring-pink-400 hover:shadow-[0_0_80px_rgba(236,72,153,1)] cursor-pointer"
+                   class="relative w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full object-cover ring-4 ring-purple-400/80 shadow-[0_0_60px_rgba(168,85,247,1)] transform transition-all duration-700 hover:scale-110 hover:rotate-[15deg] hover:ring-pink-400 hover:shadow-[0_0_80px_rgba(236,72,153,1)] cursor-pointer z-10"
                    alt="avatar">
               
               <!-- Sparkle overlay -->
-              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-500 animate-shimmer"></div>
+              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-500 animate-shimmer z-20"></div>
               
               <!-- Status indicator -->
-              <div class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 rounded-full border-4 border-zinc-900 shadow-[0_0_20px_rgba(34,197,94,0.8)] animate-pulse"></div>
+              <div class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 rounded-full border-4 border-zinc-900 shadow-[0_0_20px_rgba(34,197,94,0.8)] animate-pulse z-30"></div>
             </div>
           </div>
 
           <!-- Name Decoration -->
-          <div class="relative group/name-box">
+          <div class="relative group/name-box animate-slide-in-right">
             <!-- Glowing background -->
             <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-3xl opacity-30 group-hover/name-box:opacity-60 blur-2xl transition-all duration-700 animate-pulse-slow"></div>
             
@@ -180,7 +171,7 @@
         </div>
 
         <!-- Bio with typewriter effect feel -->
-        <p class="text-purple-100/90 text-base md:text-lg mb-6 font-light tracking-wide transform transition-all duration-500 hover:text-purple-200 hover:scale-105 cursor-default leading-relaxed">
+        <p class="text-purple-100/90 text-base md:text-lg mb-6 font-light tracking-wide transform transition-all duration-500 hover:text-purple-200 hover:scale-105 cursor-default leading-relaxed animate-fade-in-up delay-300">
           <span class="inline-block hover:animate-bounce-gentle">旅</span>
           <span class="inline-block hover:animate-bounce-gentle delay-75">行</span>
           <span class="inline-block hover:animate-bounce-gentle delay-100">的</span>
@@ -196,7 +187,7 @@
         </p>
 
         <!-- User Info Badge - Enhanced -->
-        <div class="relative group/badge mb-8">
+        <div class="relative group/badge mb-8 animate-fade-in-up delay-500">
           <!-- Mega glow -->
           <div class="absolute -inset-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-full opacity-40 group-hover/badge:opacity-80 blur-xl transition-all duration-700 animate-pulse-slow"></div>
           
@@ -233,7 +224,7 @@
         </div>
 
         <!-- Social Icons - FLOATING IN SPACE -->
-        <div class="relative h-36 md:h-44 lg:h-48 mb-6">
+        <div class="relative h-36 md:h-44 lg:h-48 mb-6 animate-fade-in-up delay-700">
           <!-- Spotify - Floating -->
           <a href="https://open.spotify.com/user/31dxx3g3qrmquijxdi5jwi532hji?si=6c5ff306be4c4afb"
              target="_blank" rel="noopener noreferrer" 
@@ -293,7 +284,7 @@
         </div>
 
         <!-- View Counter - Simple no box -->
-        <div class="flex items-center justify-center gap-2 text-purple-300/90 text-sm md:text-base group/views transform transition-all duration-300 hover:scale-110 cursor-default">
+        <div class="flex items-center justify-center gap-2 text-purple-300/90 text-sm md:text-base group/views transform transition-all duration-300 hover:scale-110 cursor-default animate-fade-in-up delay-1000">
           <svg class="w-5 h-5 md:w-6 md:h-6 drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] group-hover/views:animate-pulse-fast" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
           </svg>
@@ -307,6 +298,75 @@
 </section>
 
 <style>
+/* Particle pulse animation */
+@keyframes particle-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+}
+
+.animate-particle-pulse {
+  animation: particle-pulse 2s ease-in-out infinite;
+}
+
+/* Entrance animations */
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-200%) rotate(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(200%) rotate(180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 1s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Delay for entrance animations */
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-1000 { animation-delay: 1s; }
+
 /* Gradient animations */
 @keyframes gradient-flow {
   0%, 100% { background-position: 0% 50%; }
@@ -353,6 +413,16 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes spin-medium {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse-slow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
 @keyframes spin-very-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -361,6 +431,18 @@
 @keyframes spin-reverse {
   from { transform: rotate(360deg); }
   to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-medium {
+  animation: spin-medium 6s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 10s linear infinite;
 }
 
 /* Shimmer effect */
@@ -474,34 +556,44 @@
 .delay-100 { animation-delay: 100ms; }
 .delay-150 { animation-delay: 150ms; }
 .delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
 .delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
 .delay-800 { animation-delay: 800ms; }
+
+/* Hide animations initially until notification is dismissed */
+#profileSection.before-start .animate-slide-in-left,
+#profileSection.before-start .animate-slide-in-right,
+#profileSection.before-start .animate-fade-in-up {
+  opacity: 0;
+  animation: none;
+}
 </style>
 
 <script>
-// Handle notification dismissal
+// Handle notification dismissal and start animations
 document.addEventListener('DOMContentLoaded', function() {
   const notification = document.getElementById('clickNotification');
+  const profileSection = document.getElementById('profileSection');
   
-  // Close notification on any click or touch
-  notification.addEventListener('click', function() {
+  // Add class to prevent animations from starting
+  profileSection.classList.add('before-start');
+  
+  function startAnimations() {
     notification.style.opacity = '0';
     setTimeout(() => {
       notification.style.display = 'none';
+      // Remove the class to trigger animations
+      profileSection.classList.remove('before-start');
     }, 500);
-  });
+  }
+  
+  // Close notification on any click or touch
+  notification.addEventListener('click', startAnimations);
   
   // Also close on any key press
   document.addEventListener('keydown', function() {
     if (notification.style.display !== 'none') {
-      notification.style.opacity = '0';
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 500);
+      startAnimations();
     }
   }, { once: true });
 });
