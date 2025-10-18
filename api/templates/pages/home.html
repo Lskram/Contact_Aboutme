@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}nenekawaiii{% endblock %}
+{% block title %}5000%{% endblock %}
 
 {% block content %}
 <!-- Notification Overlay -->
@@ -23,10 +23,10 @@
       
       <!-- Message -->
       <h2 class="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent">
-        ยินดีต้อนรับ! 👋
+        ฟังกูนะ !!👋
       </h2>
       <p class="text-white/90 text-lg mb-6 leading-relaxed">
-        กรุณา <span class="text-purple-300 font-semibold">แตะหน้าจอ</span> เพื่อเริ่มต้นประสบการณ์<br>
+        กรุณา <span class="text-purple-300 font-semibold">แตะหน้าจอ</span> ไม่งั้นมันไม่เท่ห์เว้ยเห้ย 5555<br>
         <span class="text-sm text-purple-300/80">(เพลงจะเล่นอัตโนมัติ)</span>
       </p>
       
@@ -51,81 +51,6 @@
       <div class="particle particle-3"></div>
       <div class="particle particle-4"></div>
       <div class="particle particle-5"></div>
-    </div>
-
-    <!-- Planets Background -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-auto" id="planetsContainer">
-      <!-- Earth -->
-      <div class="planet-orbit planet-orbit-1">
-        <div class="planet planet-earth group cursor-pointer" data-planet="earth">
-          <div class="planet-sphere earth-sphere">
-            <div class="earth-clouds"></div>
-          </div>
-          <div class="planet-tooltip opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="font-bold text-lg">Earth</p>
-            <p class="text-sm">Our home planet</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Moon -->
-      <div class="planet-orbit planet-orbit-2">
-        <div class="planet planet-moon group cursor-pointer" data-planet="moon">
-          <div class="planet-sphere moon-sphere"></div>
-          <div class="planet-tooltip opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="font-bold text-lg">Moon</p>
-            <p class="text-sm">Earth's satellite</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Saturn -->
-      <div class="planet-orbit planet-orbit-3">
-        <div class="planet planet-saturn group cursor-pointer" data-planet="saturn">
-          <div class="planet-sphere saturn-sphere">
-            <div class="saturn-rings"></div>
-          </div>
-          <div class="planet-tooltip opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="font-bold text-lg">Saturn</p>
-            <p class="text-sm">Lord of the rings</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mars -->
-      <div class="planet-orbit planet-orbit-4">
-        <div class="planet planet-mars group cursor-pointer" data-planet="mars">
-          <div class="planet-sphere mars-sphere"></div>
-          <div class="planet-tooltip opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="font-bold text-lg">Mars</p>
-            <p class="text-sm">The red planet</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Venus -->
-      <div class="planet-orbit planet-orbit-5">
-        <div class="planet planet-venus group cursor-pointer" data-planet="venus">
-          <div class="planet-sphere venus-sphere"></div>
-          <div class="planet-tooltip opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="font-bold text-lg">Venus</p>
-            <p class="text-sm">Morning star</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Jupiter -->
-      <div class="planet-orbit planet-orbit-6">
-        <div class="planet planet-jupiter group cursor-pointer" data-planet="jupiter">
-          <div class="planet-sphere jupiter-sphere">
-            <div class="jupiter-bands"></div>
-          </div>
-          <div class="planet-tooltip opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="font-bold text-lg">Jupiter</p>
-            <p class="text-sm">Gas giant</p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Profile Card Container -->
@@ -225,17 +150,25 @@
               </div>
               
               <!-- Name -->
-              <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent animate-gradient-flow bg-[length:200%_auto] cursor-pointer group/title relative" id="mainName">
-                <span class="drop-shadow-[0_0_20px_rgba(168,85,247,1)] block transition-all duration-300 group-hover/title:scale-110">nenekawaiii</span>
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent animate-gradient-flow bg-[length:200%_auto] cursor-pointer group/title relative overflow-visible" id="mainName">
+                <span class="drop-shadow-[0_0_20px_rgba(168,85,247,1)] block transition-all duration-300 group-hover/title:scale-105">Lskram</span>
                 <!-- Click effect particles container -->
                 <div class="click-particles absolute inset-0 pointer-events-none"></div>
+                <!-- Revealed name on click -->
+                <div class="revealed-name absolute top-full left-1/2 -translate-x-1/2 mt-4 opacity-0 transition-all duration-500 whitespace-nowrap pointer-events-none">
+                  <div class="bg-gradient-to-r from-purple-900/90 via-pink-900/90 to-blue-900/90 backdrop-blur-xl px-6 py-3 rounded-2xl border-2 border-purple-400/50 shadow-[0_0_30px_rgba(168,85,247,0.6)]">
+                    <p class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 bg-clip-text text-transparent">
+                      ✨ กูหล่อสุดไม่ต้องสืบ ✨
+                    </p>
+                  </div>
+                </div>
               </h1>
               
               <!-- Subtitle/tagline -->
               <div class="mt-2 flex items-center gap-2 justify-center">
                 <div class="h-px w-8 bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
                 <p class="text-purple-200/80 text-xs md:text-sm font-light tracking-widest uppercase">
-                  Explorer
+                  Click_me na Babe!!
                 </p>
                 <div class="h-px w-8 bg-gradient-to-r from-transparent via-pink-400 to-transparent"></div>
               </div>
@@ -249,17 +182,17 @@
 
         <!-- Bio with typewriter effect feel -->
         <p class="text-purple-100/90 text-base md:text-lg mb-6 font-light tracking-wide transform transition-all duration-500 hover:text-purple-200 hover:scale-105 cursor-default leading-relaxed animate-fade-in-up delay-300">
-          <span class="inline-block hover:animate-bounce-gentle">旅</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-75">行</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-100">的</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-150">意</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-200">义</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-300">在</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-400">于</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-500">发</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-600">现</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-700">自</span>
-          <span class="inline-block hover:animate-bounce-gentle delay-800">我</span>
+          <span class="inline-block hover:animate-bounce-gentle">ส่</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-75">อ</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-100">ง</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-150">ห</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-200">า</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-300">แ</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-400">ม่</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-500">มึ</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-600">ง</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-700">อ</span>
+          <span class="inline-block hover:animate-bounce-gentle delay-800">ะ</span>
           <span class="inline-block hover:animate-bounce-gentle">。</span>
         </p>
 
@@ -281,7 +214,7 @@
             
             <div class="flex flex-col items-start">
               <div class="flex items-center gap-2">
-                <span class="text-white font-semibold text-sm md:text-base tracking-wide">s16someone</span>
+                <span class="text-white font-semibold text-sm md:text-base tracking-wide">Samephng_95007</span>
                 
                 <!-- Super glowing verified badges -->
                 <svg class="w-4 h-4 md:w-5 md:h-5 text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,1)] animate-pulse-fast" viewBox="0 0 24 24" fill="currentColor">
@@ -318,7 +251,7 @@
           </a>
 
           <!-- Twitter/X - Floating -->
-          <a href="#" target="_blank" rel="noopener noreferrer"
+          <a href="https://x.com/Comer2002?t=dtudvFRU2kEpppfZ-fakeQ&s=33" target="_blank" rel="noopener noreferrer"
              class="absolute left-[35%] top-[50%] group/twitter transition-all duration-700 hover:scale-150 animate-float-icon-2"
              aria-label="Twitter">
             <div class="absolute -inset-4 bg-sky-500 rounded-full blur-2xl opacity-0 group-hover/twitter:opacity-100 transition-all duration-700 animate-pulse"></div>
@@ -332,7 +265,7 @@
           </a>
 
           <!-- Discord - Floating -->
-          <a href="#" target="_blank" rel="noopener noreferrer"
+          <a href="https://discord.com/users/1424391955294720115" target="_blank" rel="noopener noreferrer"
              class="absolute right-[30%] top-[15%] group/discord transition-all duration-700 hover:scale-150 animate-float-icon-3"
              aria-label="Discord">
             <div class="absolute -inset-4 bg-indigo-500 rounded-full blur-2xl opacity-0 group-hover/discord:opacity-100 transition-all duration-700 animate-pulse"></div>
@@ -365,7 +298,7 @@
           <svg class="w-5 h-5 md:w-6 md:h-6 drop-shadow-[0_0_6px_rgba(168,85,247,0.8)] group-hover/views:animate-pulse-fast" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
           </svg>
-          <span class="font-bold drop-shadow-[0_0_4px_rgba(168,85,247,0.6)]">1,132</span>
+          <span class="font-bold drop-shadow-[0_0_4px_rgba(168,85,247,0.6)]">140.07 K</span>
         </div>
 
         </div><!-- End content wrapper -->
@@ -645,157 +578,16 @@
   animation: none;
 }
 
-/* Planets styling */
-.planet-orbit {
-  position: absolute;
-  animation: orbit linear infinite;
-  pointer-events: none;
+/* Name revealed effect */
+.revealed-name.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(10px);
+  animation: float-gentle 3s ease-in-out infinite;
 }
 
-.planet {
-  position: relative;
-  pointer-events: auto;
-  transition: all 0.3s ease;
-}
-
-.planet:hover {
-  transform: scale(1.3);
-  filter: brightness(1.3);
-}
-
-.planet:active {
-  transform: scale(1.5) rotate(360deg);
-  filter: brightness(1.5);
-}
-
-.planet-info {
-  position: relative;
-  z-index: 10;
-}
-
-.planet-emoji {
-  font-size: 3rem;
-  display: block;
-  filter: drop-shadow(0 0 20px currentColor);
-}
-
-.planet-glow {
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, currentColor 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.planet:hover .planet-glow {
-  opacity: 0.5;
-  animation: pulse-glow 1s ease-in-out infinite;
-}
-
-.planet-tooltip {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  border-radius: 16px;
-  border: 2px solid rgba(168, 85, 247, 0.5);
-  white-space: nowrap;
-  z-index: 50;
-  pointer-events: none;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
-}
-
-.planet-tooltip::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 10px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.9);
-}
-
-/* Planet orbits */
-.planet-orbit-1 {
-  top: 10%;
-  left: 15%;
-  animation-duration: 30s;
-}
-
-.planet-orbit-2 {
-  top: 60%;
-  right: 10%;
-  animation-duration: 25s;
-  animation-direction: reverse;
-}
-
-.planet-orbit-3 {
-  bottom: 15%;
-  left: 20%;
-  animation-duration: 35s;
-}
-
-.planet-orbit-4 {
-  top: 30%;
-  right: 20%;
-  animation-duration: 28s;
-  animation-direction: reverse;
-}
-
-.planet-orbit-5 {
-  bottom: 25%;
-  right: 15%;
-  animation-duration: 32s;
-}
-
-@keyframes orbit {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(30px, -30px) rotate(90deg);
-  }
-  50% {
-    transform: translate(60px, 0) rotate(180deg);
-  }
-  75% {
-    transform: translate(30px, 30px) rotate(270deg);
-  }
-  100% {
-    transform: translate(0, 0) rotate(360deg);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.2);
-  }
-}
-
-/* Responsive planet sizes */
-@media (max-width: 768px) {
-  .planet-emoji {
-    font-size: 2rem;
-  }
-  .planet-tooltip {
-    font-size: 0.75rem;
-    padding: 8px 12px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .planet-emoji {
-    font-size: 4rem;
-  }
+@keyframes float-gentle {
+  0%, 100% { transform: translateX(-50%) translateY(10px); }
+  50% { transform: translateX(-50%) translateY(0px); }
 }
 
 /* Name click effect */
@@ -828,11 +620,11 @@
 
 .click-particle {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   pointer-events: none;
-  animation: particle-burst 1s ease-out forwards;
+  animation: particle-burst 1.5s ease-out forwards;
 }
 </style>
 
@@ -866,7 +658,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { once: true });
 
   // Name click effect
+  let nameRevealed = false;
   mainName.addEventListener('click', function(e) {
+    // Toggle revealed name
+    const revealedName = mainName.querySelector('.revealed-name');
+    nameRevealed = !nameRevealed;
+    
+    if (nameRevealed) {
+      revealedName.classList.add('show');
+    } else {
+      revealedName.classList.remove('show');
+    }
+    
     // Add explosion animation
     mainName.classList.add('name-explode');
     setTimeout(() => mainName.classList.remove('name-explode'), 500);
@@ -879,25 +682,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const colors = ['#a855f7', '#ec4899', '#3b82f6', '#8b5cf6', '#d946ef'];
     
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       const particle = document.createElement('div');
       particle.className = 'click-particle';
       
-      const angle = (Math.PI * 2 * i) / 20;
-      const velocity = 100 + Math.random() * 100;
+      const angle = (Math.PI * 2 * i) / 30;
+      const velocity = 100 + Math.random() * 150;
       const tx = Math.cos(angle) * velocity;
       const ty = Math.sin(angle) * velocity;
       
       particle.style.left = centerX + 'px';
       particle.style.top = centerY + 'px';
       particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.boxShadow = `0 0 10px ${colors[Math.floor(Math.random() * colors.length)]}`;
+      particle.style.boxShadow = `0 0 15px ${colors[Math.floor(Math.random() * colors.length)]}`;
       particle.style.setProperty('--tx', tx + 'px');
       particle.style.setProperty('--ty', ty + 'px');
       
       container.appendChild(particle);
       
-      setTimeout(() => particle.remove(), 1000);
+      setTimeout(() => particle.remove(), 1500);
     }
     
     // Screen flash effect
@@ -905,67 +708,65 @@ document.addEventListener('DOMContentLoaded', function() {
     flash.style.cssText = `
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(168,85,247,0.4), transparent 50%);
+      background: radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(168,85,247,0.5), transparent 60%);
       pointer-events: none;
       z-index: 9999;
-      animation: flash-fade 0.5s ease-out forwards;
+      animation: flash-fade 0.8s ease-out forwards;
     `;
     document.body.appendChild(flash);
-    setTimeout(() => flash.remove(), 500);
+    setTimeout(() => flash.remove(), 800);
   });
 
-  // Planet click effects
-  const planets = document.querySelectorAll('.planet');
-  planets.forEach(planet => {
-    planet.addEventListener('click', function(e) {
-      e.stopPropagation();
-      
-      // Create ripple effect
-      const ripple = document.createElement('div');
-      ripple.style.cssText = `
-        position: absolute;
-        inset: -50%;
-        border-radius: 50%;
-        border: 3px solid rgba(168,85,247,0.8);
-        animation: ripple-expand 1s ease-out forwards;
-        pointer-events: none;
-      `;
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 1000);
-      
-      // Create star burst
-      const stars = document.createElement('div');
-      stars.style.cssText = `
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-      `;
-      
-      for (let i = 0; i < 8; i++) {
-        const star = document.createElement('div');
-        star.innerHTML = '✨';
-        star.style.cssText = `
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: 1.5rem;
-          animation: star-burst 1s ease-out forwards;
-          animation-delay: ${i * 0.05}s;
-          transform: rotate(${i * 45}deg);
-        `;
-        star.style.setProperty('--angle', i * 45 + 'deg');
-        stars.appendChild(star);
+  // Add click effects to all clickable elements
+  const clickableElements = document.querySelectorAll('.cursor-pointer, button, a');
+  
+  clickableElements.forEach(element => {
+    element.addEventListener('click', function(e) {
+      // Prevent default ripple for links (don't interfere with navigation)
+      if (this.tagName === 'A') {
+        e.stopPropagation();
       }
       
-      this.appendChild(stars);
-      setTimeout(() => stars.remove(), 1000);
+      // Create circular ripple at click position
+      const ripple = document.createElement('div');
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        left: ${x}px;
+        top: ${y}px;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.8), rgba(168, 85, 247, 0.3) 60%, transparent 80%);
+        transform: translate(-50%, -50%);
+        animation: ripple-expand 0.8s ease-out forwards;
+        pointer-events: none;
+        z-index: 1000;
+      `;
+      
+      const parent = this.querySelector('div') || this;
+      if (parent.style.position !== 'absolute' && parent.style.position !== 'relative' && parent.style.position !== 'fixed') {
+        parent.style.position = 'relative';
+      }
+      
+      parent.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 800);
+      
+      // Add scale effect
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
     });
   });
 });
 
 // Add additional animations via CSS
-const style = document.createElement('style');
-style.textContent = `
+const additionalStyle = document.createElement('style');
+additionalStyle.textContent = `
   @keyframes flash-fade {
     0% { opacity: 1; }
     100% { opacity: 0; }
@@ -973,26 +774,17 @@ style.textContent = `
   
   @keyframes ripple-expand {
     0% {
-      transform: scale(0);
+      width: 0;
+      height: 0;
       opacity: 1;
     }
     100% {
-      transform: scale(3);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes star-burst {
-    0% {
-      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-80px) scale(1);
+      width: 300px;
+      height: 300px;
       opacity: 0;
     }
   }
 `;
-document.head.appendChild(style);
+document.head.appendChild(additionalStyle);
 </script>
 {% endblock %}
