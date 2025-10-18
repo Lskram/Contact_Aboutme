@@ -1,5 +1,7 @@
 {
+  "private": true,
   "scripts": {
+    "build": "npm --prefix ./api run tw:build && node -e \"const fs=require('fs');const path=require('path');const src=path.join(__dirname,'api','static');const dest=path.join(__dirname,'public');function copyRecursive(s,d){if(!fs.existsSync(s))return;fs.mkdirSync(d,{recursive:true});for(const name of fs.readdirSync(s)){const sp=path.join(s,name);const dp=path.join(d,name);if(fs.statSync(sp).isDirectory()){copyRecursive(sp,dp);}else{fs.copyFileSync(sp,dp);}}}copyRecursive(src,dest);\"",
     "tw:build": "npm --prefix ./api run tw:build",
     "tw:watch": "npm --prefix ./api run tw:watch"
   },

@@ -1,0 +1,16 @@
+# Ignore Django backend and Python files when deploying static site to Vercel
+api/
+*.py
+manage.py
+requirements.txt
+.venv/
+__pycache__/
+
+# Node artifacts we don't want in repo root
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Optional build artifacts
+static/
+staticfiles/
