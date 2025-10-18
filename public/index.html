@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="/css/tailwind.css">
 </head>
 <body>
+  <!-- Background video (mp4) with GIF fallback -->
+  <div class="background-media">
+    <video id="bgVideo" class="fixed inset-0 w-full h-full object-cover opacity-35" autoplay muted loop playsinline>
+      <source src="/media/bg-space.mp4" type="video/mp4">
+    </video>
+    <!-- GIF fallback for hosts without the mp4 provided -->
+    <img id="bgGifFallback" src="/images/1018.gif" class="fixed inset-0 w-full h-full object-cover opacity-35" alt="background gif">
+    <div class="fixed inset-0 bg-black/45"></div>
+  </div>
+
+  <!-- Snow canvas -->
+  <canvas id="snow" class="fixed inset-0 pointer-events-none" style="opacity:.9"></canvas>
+
+  <!-- Planets container -->
+  <div id="planetsContainer" class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index:1"></div>
+
 <!-- Notification Overlay -->
 <div id="clickNotification" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md transition-opacity duration-500">
   <div class="relative bg-gradient-to-br from-purple-900/90 via-pink-900/90 to-blue-900/90 rounded-3xl p-8 md:p-12 border-2 border-purple-400/50 shadow-2xl shadow-purple-500/50 max-w-md mx-4 animate-float">
@@ -103,3 +119,64 @@
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-purple-400 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.8)] animate-particle-pulse"></div>
                 <div class="absolute top-[6.7%] right-[6.7%] w-3 h-3 bg-pink-400 rounded-full shadow-[0_0_12px_rgba(236,72,153,0.8)] animate-particle-pulse delay-100"></div>
                 <div class="absolute top-1/4 right-0 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.8)] animate-particle-pulse delay-200"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Background music (will be started on first user interaction) -->
+<audio id="bgm" src="/media/iwantu.mp3" preload="auto" loop></audio>
+
+<!-- Load planets & snow animations -->
+<script src="/js/planets.js" defer></script>
+
+<!-- Inline behavior script: start audio on first interaction, dismiss overlay, and hide missing mp4 -->
+<script>
+  (function(){
+    const notif = document.getElementById('clickNotification');
+    const bgm = document.getElementById('bgm');
+    const bgVideo = document.getElementById('bgVideo');
+    const bgGif = document.getElementById('bgGifFallback');
+
+    // If the MP4 isn't present on the server, hide the video element so GIF fallback is used
+    if (bgVideo) {
+      fetch('/media/bg-space.mp4', { method: 'HEAD' }).then(res => {
+        if (!res.ok) {
+          bgVideo.style.display = 'none';
+          if (bgGif) bgGif.style.display = 'block';
+        }
+      }).catch(() => {
+        bgVideo.style.display = 'none';
+        if (bgGif) bgGif.style.display = 'block';
+      });
+    }
+
+    // Unlock audio and hide notification on first user interaction
+    function unlockAndHide(){
+      if (bgm) {
+        // try to play; browsers may block until user gesture
+        bgm.play().catch(()=>{/* autoplay blocked - will play after gesture */});
+      }
+      if (notif) {
+        notif.style.transition = 'opacity 300ms ease';
+        notif.style.opacity = '0';
+        setTimeout(()=>{ try{ notif.style.display = 'none'; } catch(e){} }, 400);
+      }
+      document.removeEventListener('pointerdown', unlockAndHide);
+    }
+
+    document.addEventListener('pointerdown', unlockAndHide, { once: true });
+
+    // Also allow tapping the notification itself to dismiss
+    if (notif) {
+      notif.addEventListener('pointerdown', function(e){
+        // If user clicked outside the inner card, dismiss immediately
+        if (e.target === notif) unlockAndHide();
+      });
+    }
+  })();
+</script>
