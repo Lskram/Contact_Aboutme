@@ -1,9 +1,6 @@
 # Ignore Django backend and Python files when deploying static site to Vercel
-# Keep the api/ folder itself so Vercel can run the Tailwind build (api/package.json, api/assets, api/static)
-api/**/*.py
-api/**/__pycache__/
-api/**/migrations/
-api/db.sqlite3
+api/
+*.py
 manage.py
 requirements.txt
 .venv/
