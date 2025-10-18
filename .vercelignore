@@ -10,7 +10,3 @@ __pycache__/
 node_modules/
 npm-debug.log
 package-lock.json
-
-# Optional build artifacts
-static/
-staticfiles/
